@@ -42,6 +42,46 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $isVerified = false;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $brithday;
+
+    /**
+     * @ORM\Column(type="string", length=750, nullable=true)
+     */
+    private $street;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $pc;
+
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $genre;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $registrationDate;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -139,6 +179,102 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getBrithday(): ?\DateTimeInterface
+    {
+        return $this->brithday;
+    }
+
+    public function setBrithday(?\DateTimeInterface $brithday): self
+    {
+        $this->brithday = $brithday;
+
+        return $this;
+    }
+
+    public function getStreet(): ?string
+    {
+        return $this->street;
+    }
+
+    public function setStreet(?string $street): self
+    {
+        $this->street = $street;
+
+        return $this;
+    }
+
+    public function getPc(): ?int
+    {
+        return $this->pc;
+    }
+
+    public function setPc(?int $pc): self
+    {
+        $this->pc = $pc;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(?string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getGenre(): ?string
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(?string $genre): self
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    public function getRegistrationDate(): ?\DateTimeInterface
+    {
+        return $this->registrationDate;
+    }
+
+    public function setRegistrationDate(?\DateTimeInterface $registrationDate): self
+    {
+        $this->registrationDate = $registrationDate;
 
         return $this;
     }
