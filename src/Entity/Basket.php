@@ -20,12 +20,12 @@ class Basket
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="baskets")
+     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="Baskets")
      */
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity=CommandLine::class, mappedBy="basket")
+     * @ORM\OneToMany(targetEntity=CommandLine::class, mappedBy="Basket")
      */
     private $commandLines;
 

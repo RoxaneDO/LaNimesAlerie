@@ -23,7 +23,7 @@ class CommandLine
     private $quantity;
 
     /**
-     * @ORM\ManyToOne(targetEntity=basket::class, inversedBy="commandLines")
+     * @ORM\ManyToOne(targetEntity=Basket::class, inversedBy="commandLines")
      */
     private $basket;
 
