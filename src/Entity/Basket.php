@@ -20,7 +20,7 @@ class Basket
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="Baskets")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Baskets")
      */
     private $user;
 
