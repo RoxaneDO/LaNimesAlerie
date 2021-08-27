@@ -59,9 +59,15 @@ class Product
      */
     private $brand;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Category::class, mappedBy="product")
+     */
+    private $categories;
+
     public function __construct()
     {
         $this->CommandLine = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -179,6 +185,33 @@ class Product
     public function setBrand(?Brand $brand): self
     {
         $this->brand = $brand;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Category[]
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Category $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+            $category->addProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): self
+    {
+        if ($this->categories->removeElement($category)) {
+            $category->removeProduct($this);
+        }
 
         return $this;
     }
