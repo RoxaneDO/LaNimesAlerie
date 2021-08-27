@@ -42,7 +42,7 @@
 
         {% if is_granted('ROLE_ADMIN') %}
         <div class="">
-            <span><a href="{{ path('admin_index') }}" class="btn text-warning">ADMIN</a></span>
+            <span><a href="http://localhost:4200" target="_blank" class="btn text-warning">ADMIN</a></span>
             <span><a href="{{ path('app_logout') }}" class="btn text-warning">SE DECONNECTER</a></span>
         </div>
         {% elseif is_granted('ROLE_USER') %}
