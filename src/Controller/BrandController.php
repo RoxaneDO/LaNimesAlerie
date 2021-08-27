@@ -10,13 +10,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/brand')]
+#[Route('admin/brand')]
 class BrandController extends AbstractController
 {
     #[Route('/', name: 'brand_index', methods: ['GET'])]
     public function index(BrandRepository $brandRepository): Response
     {
-        return $this->render('brand/index.html.twig', [
+        return $this->render('admin/brand/index.html.twig', [
             'brands' => $brandRepository->findAll(),
         ]);
     }
@@ -36,7 +36,7 @@ class BrandController extends AbstractController
             return $this->redirectToRoute('brand_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('brand/new.html.twig', [
+        return $this->renderForm('admin/brand/new.html.twig', [
             'brand' => $brand,
             'form' => $form,
         ]);
@@ -45,7 +45,7 @@ class BrandController extends AbstractController
     #[Route('/{id}', name: 'brand_show', methods: ['GET'])]
     public function show(Brand $brand): Response
     {
-        return $this->render('brand/show.html.twig', [
+        return $this->render('admin/brand/show.html.twig', [
             'brand' => $brand,
         ]);
     }
@@ -62,7 +62,7 @@ class BrandController extends AbstractController
             return $this->redirectToRoute('brand_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('brand/edit.html.twig', [
+        return $this->renderForm('admin/brand/edit.html.twig', [
             'brand' => $brand,
             'form' => $form,
         ]);

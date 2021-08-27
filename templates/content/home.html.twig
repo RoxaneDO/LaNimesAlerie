@@ -1,0 +1,192 @@
+{% extends "base.html.twig" %}
+{% block container %}
+
+<nav class="menuB">
+    {{ knp_menu_render('main') }}
+</nav>
+
+<section class="container pt-5">
+    <div class="row container_accueil">
+        <span class=" col-6">
+            <img class="image_accueil" src="{{ asset('image/Essaie4.png') }}" alt="">
+        </span>
+        <div class="col-md-5 d-flex flex-column justify-content-center ">
+            <h2 class="text-success fw-bold py-5">UNE ALIMENTATION DE QUALITE, SELECTIONNEE PAR DES PASSIONNES</h2>
+            <div class="info_boutique">
+                <p><img class="check-accueil pe-2" src="{{ asset('image/logo/check-mark.svg') }}" alt="logo_check"> Sélection des plus grandes marques dédiées à l’alimentation et au bien-être des vos animaux</p>
+                <p><img class="check-accueil pe-2" src="{{ asset('image/logo/check-mark.svg') }}" alt="logo_check"> Accompagnement de nos experts et de notre spécialiste en nutrition animal</p>
+                <p><img class="check-accueil pe-2" src="{{ asset('image/logo/check-mark.svg') }}" alt="logo_check"> Paiement sécurisé par carte bancaire</p>
+            </div>
+            <div class="py-5">
+                <button type="button" class="btn text-warning px-3" href="#boutique">BOUTIQUE</button>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <h3 class="offset-md-4 text-secondary mt-5 w-auto">Nos partenaires</h3>
+    </div>
+
+    <div class="row row-cols-md-4 py-5">
+        <a class="col" href="#"><img class="logo_partenaire" src="{{ asset('image/canilove_logo.png') }}" alt="logo_carnilove"></a>
+        <a class="col" href="#"><img class="logo_partenaire" src="{{ asset('image/josera_logo.png') }}" alt="logo_wolfood"> </a>
+        <a class="col" href="#"><img class="logo_partenaire" src="{{ asset('image/logowolfood.jpg') }}" alt="logo_ownat"> </a>
+        <a class="col" href="#"><img class="logo_partenaire" src="{{ asset('image/ownat_logo.png') }}" alt="logo_josera"> </a>
+    </div>
+</section>
+
+<section class="container my-5 py-5">
+    <h2 class="text-success fw-bold pb-5">PODIUM DES VENTES</h2>
+    <div class="row row-cols-md-4 g-3">
+        <div class="col">
+            <div class="rounded border-light">
+                <div class="bg-light rounded-top d-flex justify-content-center">
+                    <img src="images/croquettes/originelle_dog_allege.jpg" class="image_carte" alt="croquettes originelle">
+                </div>
+                <div class="row">
+                    <div class="col-9 p-3">
+                        <p class="card-text fw-bold text-info">Adulte, allégé</p>
+                        <p class="card-text fw-bolder">ORIGINELLE</p>
+                    </div>
+                    <div class="col-3 py-3">
+                        <a href="#"><img class="logo_carte" src="{{ asset('image/logo/dog.svg') }}" alt="icone chien"> </a>
+                    </div>
+                </div>
+                <div class="">
+                    <button type="button" class="btn btn-success fw-bold px-5" href="#boutique">A partir de 7€/kg</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col" >
+            <div class="rounded border-light">
+                <div class="bg-light rounded-top d-flex justify-content-center">
+                    <img src="{{ asset('image/croquettes/originelle_dog_allege.jpg') }}" class="image_carte" alt="croquettes">
+                </div>
+                <div class="row">
+                    <div class="col-9 card_body p-3">
+                        <p class="card-text fw-bold text-info">Adulte, allégé</p>
+                        <p class="card-text fw-bolder">ORIGINELLE</p>
+                    </div>
+                    <div class="col-3 card_body py-3">
+                        <a href="#"><img class="logo_carte" src="{{ asset('image/logo/happy.svg') }}" alt=""> </a>
+                    </div>
+                </div>
+                <div class="">
+                    <button type="button" class="btn btn-success fw-bold px-5" href="#boutique">A partir de 7€/kg</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col" >
+            <div class="rounded border-light">
+                <div class="bg-light rounded-top d-flex justify-content-center">
+                    <img src="{{ asset('image/croquettes/originelle_dog_allege.jpg') }}" class="image_carte" alt="...">
+                </div>
+                <div class="row">
+                    <div class="col-9 card_body p-3">
+                        <p class="bg-light card-text fw-bold text-info">Adulte, allégé</p>
+                        <p class="bg-light card-text fw-bolder">ORIGINELLE</p>
+                    </div>
+                    <div class="col-3 card_body py-3">
+                        <a href="#"><img class="logo_carte" src="logo/dog.svg" alt=""> </a>
+                    </div>
+                </div>
+                <div class="">
+                    <button type="button" class="btn btn-light fw-bold px-5" href="#boutique">A partir de 7€/kg</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col" >
+            <div class="rounded border-light">
+                <div class="bg-light rounded-top d-flex justify-content-center">
+                    <img src="{{ asset('image/croquettes/originelle_dog_allege.jpg') }}" class="image_carte" alt="...">
+                </div>
+                <div class="row">
+                    <div class="col-9 card_body p-3">
+                        <p class="bg-light card-text fw-bold text-info">Adulte, allégé</p>
+                        <p class="bg-light card-text fw-bolder">ORIGINELLE</p>
+                    </div>
+                    <div class="col-3 card_body py-3">
+                        <a href="#"><img class="logo_carte" src="logo/dog.svg" alt=""> </a>
+                    </div>
+                </div>
+                <div class="">
+                    <button type="" class="fw-bold px-5" href="#boutique">A partir de 7€/kg</button>
+                </div>
+            </div>
+        </div>
+
+        <a class="col-lg-12 text-end bouton_2" href="#">Voir plus</a>
+    </div>
+</section>
+
+<section class="d-flex justify-content-center my-5 py-5 ">
+    <div class="container_voyage_accueil">
+        <div class="d-flex flex-column justify-content-center align-items-center h-100">
+            <h2 class="text-light fw-bold pb-3">ON PART SUR LA LUNE!</h2>
+            <p class="text-light w-75 pb-3">Marre que votre chat vous réveille tous les matins à 6h30 ? Offrez-lui un voyage qu'il n'est pas prêt d'oublier!</p>
+            <div class="">
+                <button type="button" class="btn btn-warning text-light fw-bold px-5 " href="#boutique" >ON S'ENVOLE!</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container py-5 my-2">
+    <div class="row row-cols row-col-md-5">
+        <div class="col">
+            <div class="d-flex flex-column align-item-center">
+                <img class="logo_confience text-center" src="{{ asset('image/logo/shopping-bag.svg') }}" alt="">
+                <p class="text-center"><b>Retrait gratuit</b></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex flex-column align-item-center">
+                <img class="logo_confience text-center" src="{{ asset('image/logo/delivery-truck.svg') }}" alt="">
+                <p class="text-center"><b>Livraison offerte </b></br> domicile dès 35e</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex flex-column align-item-center">
+                <img class="logo_confience text-center" src="{{ asset('image/logo/credit-card.svg') }}" alt="">
+                <p class="text-center"><b>Paiement sécurisé</b></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex flex-column align-item-center">
+                <img class="logo_confience text-center" src="{{ asset('image/logo/exchange.svg') }}" alt="">
+                <p class="text-center"><b>Retours gratuits</b></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex flex-column align-item-center">
+                <img class="logo_confience text-center" src="{{ asset('image/logo/speech-bubble.svg') }}" alt="">
+                <p class="text-center"><b>Aide et contact </b></br> Une question ?</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container py-5">
+    <div class="row w-100 d-flex justify-content-between">
+        <div class="col-md-4 d-flex flex-column justify-content-center ">
+            <h2>NOTRE DESTINATION</h2>
+            <h4>Votre boutique vous accueille de 8h à 19h du lundi au samedi </h4>
+            <p>Nous mettons tout en oeuvre afin de partager les valeurs qui nous tiennent à coeur depuis 1960. Reversement de nos fonds vers des associations de protection d’animaux, entreprise familiale ...</p>
+            <div class="">
+                <img class="logo" src="logo/home.svg" alt="">
+                <span>en savoir plus</span>
+                <img src="" alt="">
+            </div>
+            <div class="">
+                <img class="logo" src="logo/phone-call.svg" alt="">
+                <span>contact</span>
+                <img src="" alt="">
+            </div>
+        </div>
+        <img class="col-md-7 image_nimes" src="images/nimes_1914.jpg" alt="">
+    </div>
+</section>
+
+{% endblock %}

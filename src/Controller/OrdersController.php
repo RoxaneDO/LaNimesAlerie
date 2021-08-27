@@ -10,13 +10,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/orders')]
+#[Route('amdin/orders')]
 class OrdersController extends AbstractController
 {
     #[Route('/', name: 'orders_index', methods: ['GET'])]
     public function index(OrdersRepository $ordersRepository): Response
     {
-        return $this->render('orders/index.html.twig', [
+        return $this->render('admin/orders/index.html.twig', [
             'orders' => $ordersRepository->findAll(),
         ]);
     }
@@ -36,7 +36,7 @@ class OrdersController extends AbstractController
             return $this->redirectToRoute('orders_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('orders/new.html.twig', [
+        return $this->renderForm('admin/orders/new.html.twig', [
             'order' => $order,
             'form' => $form,
         ]);
@@ -45,7 +45,7 @@ class OrdersController extends AbstractController
     #[Route('/{id}', name: 'orders_show', methods: ['GET'])]
     public function show(Orders $order): Response
     {
-        return $this->render('orders/show.html.twig', [
+        return $this->render('admin/orders/show.html.twig', [
             'order' => $order,
         ]);
     }
@@ -62,7 +62,7 @@ class OrdersController extends AbstractController
             return $this->redirectToRoute('orders_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('orders/edit.html.twig', [
+        return $this->renderForm('admin/orders/edit.html.twig', [
             'order' => $order,
             'form' => $form,
         ]);
