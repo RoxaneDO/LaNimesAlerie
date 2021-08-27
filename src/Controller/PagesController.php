@@ -3,26 +3,27 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; // utiliser la méthode render, qui permet d'étendre un template
 use Symfony\Component\HttpFoundation\Response; // outil qui permet d'utiliser récupérer les requetes http pour retourner un résultat, pour renvoyer les réponses
+use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/')]
-class ContentController extends AbstractController
+
+class PagesController extends AbstractController
 {
     #[Route('/cgv', name: 'cgv')]
-    public function cgv(string $title): Response
+    public function cgv(): Response
     {
-        return $this->render('pages/cgv.html.twig', ['title' => $title, 'description' => 'Page des Conditions Generales de Vente']);
+        return $this->render('pages/cgv.html.twig', ['title' => 'Page des Conditions Generales de Vente']);
     }
 
     #[Route('/mentionsLegales', name: 'mentionsLegales')]
-    public function mentionLegale(string $title): Response
+    public function mentionLegale(): Response
     {
-        return $this->render('pages/mentionsLegales.html.twig', ['title' => $title, 'description' => 'Page des mentions légales']);
+        return $this->render('pages/mentionsLegales.html.twig', ['title' => 'Page des mentions légales']);
     }
 
     #[Route('/politiqueConfidentialite', name: 'politiqueConfidentialite')]
-    public function politiqueConfidentialite(string $title): Response
+    public function politiqueConfidentialite(): Response
     {
-        return $this->render('pages/politiqueConfidentialite.html.twig', ['title' => $title, 'description' => 'Page des Politiques de confidentialité']);
+        return $this->render('pages/politiqueConfidentialite.html.twig', ['title' => 'Page des Politiques de confidentialité']);
     }
 
 }

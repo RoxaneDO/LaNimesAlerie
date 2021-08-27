@@ -57,7 +57,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $brithday;
+    private $birthday;
 
     /**
      * @ORM\Column(type="string", length=750, nullable=true)
@@ -219,14 +219,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getBrithday(): ?\DateTimeInterface
+    public function getBirthday(): ?\DateTimeInterface
     {
-        return $this->brithday;
+        return $this->birthday;
     }
 
-    public function setBrithday(?\DateTimeInterface $brithday): self
+    public function setBirthday(?\DateTimeInterface $birthday): self
     {
-        $this->brithday = $brithday;
+        $this->birthday = $birthday;
 
         return $this;
     }

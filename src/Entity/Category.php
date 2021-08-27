@@ -25,7 +25,7 @@ class Category
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=750)
+     * @ORM\Column(type="string", length=750, nullable=true)
      */
     private $picture;
 

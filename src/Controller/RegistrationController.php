@@ -27,10 +27,12 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $user = new User();
+
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setRegistrationDate(new \DateTime('now'));
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
