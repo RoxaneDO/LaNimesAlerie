@@ -1,0 +1,57 @@
+<div class=" header container h-100">
+    <nav class="navbar navbar-expand-lg h-100 d-flex justify-content-between">
+        <a href="{{ path('home') }}" class=""><img class="logo_animalerie" src="{{ asset('image/Logo1.png') }}" alt=""></a>
+        <div class="w-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold text-success" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            LA NIME ALERIE ?
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Qui sommes nous ?</a></li>
+                            <li><a class="dropdown-item" href="#">Contact</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold text-success" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            NOS PARTENAIRES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold text-success" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            BOUTIQUE
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {% if is_granted('ROLE_ADMIN') %}
+        <div class="">
+            <span><a href="{{ path('admin_index') }}" class="btn text-warning">ADMIN</a></span>
+            <span><a href="{{ path('app_logout') }}" class="btn text-warning">SE DECONNECTER</a></span>
+        </div>
+        {% elseif is_granted('ROLE_USER') %}
+        <div class="">
+            <span><a href="" class="btn text-warning">MON COMPTE</a></span>
+            <span><a href="{{ path('app_logout') }}" class="btn text-warning">SE DECONNECTER</a></span>
+        </div>
+        {% else %}
+        <span><a href="{{ path('app_login') }}" class="btn text-warning">SE CONNECTER</a></span>
+        {% endif %}
+    </nav>
+</div>
