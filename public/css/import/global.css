@@ -9,3 +9,11 @@
   font-family: "Roboto", sans-serif;
   font-size: 14px;
 }
+
+.btn{
+  border-radius: 0 !important;
+}
+
+.btn img {
+  height: 1.8rem;
+}
