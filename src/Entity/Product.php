@@ -64,6 +64,11 @@ class Product
      */
     private $categories;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $sold;
+
     public function __construct()
     {
         $this->CommandLine = new ArrayCollection();
@@ -212,6 +217,18 @@ class Product
         if ($this->categories->removeElement($category)) {
             $category->removeProduct($this);
         }
+
+        return $this;
+    }
+
+    public function getSold(): ?int
+    {
+        return $this->sold;
+    }
+
+    public function setSold(?int $sold): self
+    {
+        $this->sold = $sold;
 
         return $this;
     }

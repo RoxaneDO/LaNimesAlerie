@@ -4,8 +4,8 @@
         <div class="w-auto">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle fw-bold text-success" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="px-5 nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold text-primary" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             LA NIME ALERIE ?
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -14,26 +14,25 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle fw-bold text-success" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="px-5 nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold text-primary" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             NOS PARTENAIRES
                         </a>
+
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            {% for brand in brands %}
+                                <li><a href="#" class="dropdown-item">{{ brand.name }}</a></li>
+                            {% endfor %}
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle fw-bold text-success" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="px-5 nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold text-primary" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             BOUTIQUE
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            {% for categorie in categories %}
+                                <li><a href="#" class="dropdown-item">{{ categorie.name }}</a></li>
+                            {% endfor %}
                         </ul>
                     </li>
                 </ul>

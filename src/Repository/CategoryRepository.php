@@ -19,6 +19,25 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
+    public function findCategoryMenu()
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.category_parent IS NULL')
+            ->getQuery()
+            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY) // retourne un tableau de données
+        ;
+    }
+
+    public function findSubCategoryMenu($value)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.category_parent = :val')
+            ->setParameter('val', $value) // sécurise le code, au lieu de mettre andWhere('c.exampleField = $value')
+            ->getQuery()
+            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY) // retourne un tableau de données
+        ;
+    }
+
     // /**
     //  * @return Category[] Returns an array of Category objects
     //  */

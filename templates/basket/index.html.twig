@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+
+<div class="bg-light p-3">
+    <h1>Votre panier</h1>
+</div>
+<section class="container d-flex flex-column align-items-end">
+
+
+    {% if items | length > 0 %} <!-- On transforme notre tableau items en une longueur -->
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-uppercase">Produit</th>
+                <th class="text-uppercase">Price HT</th>
+                <th class="text-uppercase">Quantité</th>
+                <th class="text-uppercase">Total</th>
+                <th class="text-uppercase"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td> <span class="text-uppercase">{{ item.product.brand.name }}</span> - {{ item.product.name }}</td>
+                <td>{{ item.product.priceHT }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.product.priceHT * item.quantity }}</td>
+                <td>
+                    <a href="{{ path('basket_remove', {'id': item.product.id}) }}" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash">SUPPRIMER</i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end fw-bold text-warning">Total :</td>
+                <td class="text-warning"> {{ total }}</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+    {% else  %}
+
+    <p>Surprise c'est vide!</p>
+
+    {% endif %}
+    <p>
+        <a type="button" class="btn border-warning text-uppercase text-warning px-3" href="#boutique"><< boutique</a>
+
+        {% if app.user %}
+        <a type="button" class="btn border-warning text-uppercase text-warning px-3" href="#boutique">suite >></a>
+
+        {% else  %}
+        <a type="button" class="btn border-warning text-uppercase text-warning px-3" href="{{ path('app_login') }}">suite >></a>
+        {% endif %}
+    </p>
+
+</section>
+
+
+
+{% endblock %}

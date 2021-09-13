@@ -29,6 +29,11 @@ class Brand
      */
     private $product;
 
+    /**
+     * @ORM\Column(type="string", length=500)
+     */
+    private $picture;
+
     public function __construct()
     {
         $this->product = new ArrayCollection();
@@ -77,6 +82,18 @@ class Brand
                 $product->setBrand(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }

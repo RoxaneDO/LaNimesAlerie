@@ -7,7 +7,7 @@
     and uncomment the following Encore helpers to start using Symfony UX #}
     {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bootstrap.css') }}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
 
 <body>
     {% block header %}
-    {{ include ('content/navigation.html.twig') }}
+    {{ render(path('nav')) }}
     {% endblock %}
 
     <section class="container_page">

@@ -17,7 +17,6 @@
   width:100%;
 }
 
-
 .logoBrand{
   width: 65px;
   height: 65px;
@@ -31,4 +30,12 @@
 
 .logo_confience{
     width: 6rem;
+}
+
+.findUs{
+    height: 50rem;
+}
+
+iframe{
+    padding: 0 !important;
 }
