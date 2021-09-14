@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('amdin/orders')]
+#[Route('admin/orders')]
 class OrdersController extends AbstractController
 {
-    #[Route('/', name: 'orders_index', methods: ['GET'])]
+    #[Route('/', name: 'orders_admin', methods: ['GET'])]
     public function index(OrdersRepository $ordersRepository): Response
     {
         return $this->render('admin/orders/index.html.twig', [

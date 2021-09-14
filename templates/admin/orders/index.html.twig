@@ -2,7 +2,7 @@
 
 {% block title %}Orders index{% endblock %}
 
-{% block body %}
+{% block container %}
     <h1>Orders index</h1>
 
     <table class="table">
@@ -34,4 +34,5 @@
     </table>
 
     <a href="{{ path('orders_new') }}">Create new</a>
+    <a href="{{ path('admin') }}">Retour</a>
 {% endblock %}

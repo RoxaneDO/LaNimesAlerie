@@ -19,19 +19,19 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
-    public function findCategoryMenu()
+    public function findMainCategories()
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.category_parent IS NULL')
+            ->andWhere('c.category IS NULL')
             ->getQuery()
             ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY) // retourne un tableau de données
         ;
     }
 
-    public function findSubCategoryMenu($value)
+    public function findSubCategories($value)
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.category_parent = :val')
+            ->andWhere('c.category = :val')
             ->setParameter('val', $value) // sécurise le code, au lieu de mettre andWhere('c.exampleField = $value')
             ->getQuery()
             ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY) // retourne un tableau de données

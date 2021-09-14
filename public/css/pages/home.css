@@ -13,8 +13,13 @@
 }
 
 .carousel-item{
-  height: 100%;
-  width:100%;
+
+  object-fit: none;
+}
+
+.carousel-item img {
+
+    width: 100%;
 }
 
 .logoBrand{

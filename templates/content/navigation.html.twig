@@ -1,6 +1,6 @@
 <div class=" header container h-100">
     <nav class="navbar navbar-expand-lg h-100 d-flex justify-content-between">
-        <a href="{{ path('home') }}" class=""><img class="logo_animalerie" src="{{ asset('image/Logo1.png') }}" alt=""></a>
+        <a href="{{ path('home') }}" class=""><img class="logo_animalerie" src="{{ asset('image/Logo.png') }}" alt=""></a>
         <div class="w-auto">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -21,7 +21,7 @@
 
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% for brand in brands %}
-                                <li><a href="#" class="dropdown-item">{{ brand.name }}</a></li>
+                            <li><a href="#" class="dropdown-item">{{ brand.name }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>
@@ -30,8 +30,16 @@
                             BOUTIQUE
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {% for categorie in categories %}
-                                <li><a href="#" class="dropdown-item">{{ categorie.name }}</a></li>
+
+                            {% for mainCat in mainCats %}
+                                <li><a href="#" class="dropdown-item fw-bolder">{{ mainCat.name }}</a></li>
+                                <ul>
+                                    {% for category in categories %}
+                                        {% if category.category is not null and mainCat.id == category.category.id %}
+                                            <li><a href="#" class="dropdown-item fw-bolder">{{ category.name }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
                             {% endfor %}
                         </ul>
                     </li>
@@ -41,7 +49,7 @@
 
         {% if is_granted('ROLE_ADMIN') %}
         <div class="">
-            <span><a href="http://localhost:4200" target="_blank" class="btn text-warning">ADMIN</a></span>
+            <span><a href="{{ path('admin') }}" target="_blank" class="btn text-warning">ADMIN</a></span>
             <span><a href="{{ path('app_logout') }}" class="btn text-warning">SE DECONNECTER</a></span>
         </div>
         {% elseif is_granted('ROLE_USER') %}

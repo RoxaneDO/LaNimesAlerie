@@ -2,7 +2,7 @@
 
 {% block title %}Category index{% endblock %}
 
-{% block body %}
+{% block container %}
     <h1>Category index</h1>
 
     <table class="table">
@@ -34,4 +34,5 @@
     </table>
 
     <a href="{{ path('category_new') }}">Create new</a>
+    <a href="{{ path('admin') }}">Retour</a>
 {% endblock %}

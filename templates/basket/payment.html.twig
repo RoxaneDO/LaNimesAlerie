@@ -2,7 +2,7 @@
 
 {% block container %}
 <div class="bg-light p-3">
-    <h1 class="text-uppercase">facture</h1>
+    <h1 class="text-uppercase">facture & paiement</h1>
 </div>
 
 <section class="container">
@@ -21,7 +21,7 @@
         </div>
         <div class="col-2">
             <div class="d-flex flex-column align-items-center">
-                <a class="btn border-success text-success fw-bold" href="#">3</a>
+                <a class="btn border-success text-success fw-bold" href="{{ path('basket_delivery') }}">3</a>
                 <p class="text-uppercase fw-bold mt-2">Livraison</p>
             </div>
         </div>
@@ -75,14 +75,23 @@
         <p>Surprise c'est vide!</p>
         {% endif %}
     </div>
-</section>
 
-<div class="bg-light p-3">
-    <h1 class="text-uppercase">paiement</h1>
+    <h3 class="mt-5">Veuillez choisir votre moyen de paiement</h3>
+
+    {{ form_start(form) }}
+    {{ form_widget(form.payment) }}
+    <div class="my-3">
+        <button type="submit" class="btn btn-warning text-uppercase text-light">Valider</button>
+    </div>
+
+    {{ form_end(form) }}
+
+</div>
+<div class="my-3">
+    <a type="button" class="btn border-warning text-uppercase text-warning px-3" href="{{ path('basket_delivery') }}"><< livraison</a>
 </div>
 
-<section class="container">
- formulaire paypal / CB
 </section>
+
 
 {% endblock %}

@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\CommandLine;
 use App\Entity\Delivery;
+use App\Entity\Orders;
+use App\Entity\Payment;
+use App\Form\OrderPaymentType;
 use App\Repository\BasketRepository;
 use App\Repository\ProductRepository;
 use App\Repository\UserRepository;
@@ -56,16 +60,15 @@ class BasketController extends AbstractController
         /* $session = $request->getSession(); // objet de Symfony, n'est plus nécessaire avec sessionInterface*/
         $panier = $session->get('panier', []); // créer un espace mémoire dans la session appelé 'panier', et si je n'ai pas de panier, je veux un tableau vide
 
-
-        // Pour la quantité et l'incrémentation
+        /* Pour la quantité et l'incrémentation */
         if (!empty($panier[$id])){
             $panier[$id]++;
         }
         else {
             $panier[$id] = 1; // id du produit, et de quantité 1
         }
-
         $session->set('panier', $panier);
+        /* AOE quantité et incrémentation */
 
         /* dd($session->get('panier')); // dump and die */
 
@@ -103,7 +106,7 @@ class BasketController extends AbstractController
     }
 
     #[Route('/basket/payment', name: 'basket_payment')]
-    public function payement(UserRepository $user, SessionInterface $session, ProductRepository $productRepository){
+    public function payement(UserRepository $user, SessionInterface $session, ProductRepository $productRepository, Request $request){
 
         /* Mettre la session dans un tableau pour l'affichage */
         $panier = $session->get('panier', []); // j'ai un panier qui est égale à ce qu'il y a dans la session qui s'appelle 'panier'
@@ -118,6 +121,25 @@ class BasketController extends AbstractController
         }
         /*AOE Mettre la session dans un tableau pour l'affichage*/
 
+        /* Formulaire de paiement */
+        $order = new Orders();
+
+        $form = $this->createForm(OrderPaymentType::Class, $order);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $order->setDateOrder(new \DateTime('now'));
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($order);
+            $entityManager->flush();
+
+
+            $this->addCommandLine($order);
+
+            return $this->redirectToRoute('basket_confirmation', [], Response::HTTP_SEE_OTHER);
+        }
+        /* AOE Formulaire de paiement */
 
         /* Faire le total */
         $total = 0;
@@ -127,11 +149,28 @@ class BasketController extends AbstractController
         }
         /*AOE faire le total */
 
-
-        /* dd($panierWithData); */
-
         return $this->render('basket/payment.html.twig', [
-            'items' => $panierWithData, 'total' => $total,
+            'items' => $panierWithData, 'total' => $total, 'form' => $form->createView()
+        ]);
+    }
+
+    public function addCommandLine($order)
+    {
+        $commandLine = new CommandLine();
+        $idOrder = $order->getId();
+
+        $commandLine->setBasket($idOrder);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($commandLine);
+        $entityManager->flush();
+    }
+
+    #[Route('/basket/confirmation', name: 'basket_confirmation')]
+    public function payment(UserRepository $user, SessionInterface $session, ProductRepository $productRepository, Request $request){
+
+        return $this->render('basket/confirmation.html.twig', [
+
         ]);
     }
 }

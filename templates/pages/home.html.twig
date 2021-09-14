@@ -10,24 +10,24 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('image/photo1.jpeg') }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('image/photo1.png') }}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Accompagnement de nos experts et de notre spécialiste en nutrition animal</h5>
-                    <p><button type="button" class="btn border-warning  text-warning px-3" href="#boutique">BOUTIQUE</button></p>
+                    <h5 class="text-light" >Accompagnement de nos experts et de notre spécialiste en nutrition animal</h5>
+                    <p><a type="button" class="btn btn-warning text-warning  text-light px-3" href="{{ path('product_index') }}">BOUTIQUE</a></p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('image/photo2.jpg') }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('image/photo2.png') }}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Sélection des plus grandes marques dédiées à l’alimentation et au bien-être de vos animaux</h5>
-                    <p><button type="button" class="btn border-warning  text-warning px-3" href="#boutique">BOUTIQUE</button></p>
+                    <h5 class="text-light" >Sélection des plus grandes marques dédiées à l’alimentation et au bien-être de vos animaux</h5>
+                    <p><a type="button" class="btn btn-warning text-warning text-light px-3" href="{{ path('product_index') }}">BOUTIQUE</a></p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('image/photo3.jpg') }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('image/photo3.png') }}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Paiement sécurisé par carte bancaire</h5>
-                    <p><button type="button" class="btn border-warning text-warning px-2" href="#boutique">BOUTIQUE</button></p>
+                    <h5 class="text-light" >Paiement sécurisé par carte bancaire</h5>
+                    <p><a type="button" class="btn btn-warning text-warning text-light px-3" href="{{ path('product_index') }}">BOUTIQUE</a></p>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
     <h3 class="text-center text-primary pb-5">NOS MEILLEURS VENTES</h3>
     <div class="row row-cols-md-3 gx-5">
 
-        {% for product in products %}
+        {% for product in bestProducts %}
         <div class="col">
             <div class="">
                 <div class="bgImgCardParent d-flex justify-content-center">
@@ -74,8 +74,8 @@
                             <div class="col-8 p-3 bg-light">
                                 <p class="card-text fw-bolder text-uppercase">à partir de {{ product.priceHT }} EUR</p>
                             </div>
-                            <a type="button" href="{{ path('basket_add', {'id': product.id })}}" class="btn col-2" name="button"><img src="{{ asset('logo/plus.svg') }}" alt=""></a>
-                            <a type="button" class="btn col-2" name="button"><img src="{{ asset('logo/shopping-cart.svg') }}" alt=""></a>
+                            <a type="button" href="{{ path('product_show', {'id': product.id })}}" class="btn col-2" name="button"><img src="{{ asset('logo/plus.svg') }}" alt=""></a>
+                            <a type="button" href="{{ path('basket_add', {'id': product.id })}}" class="btn col-2" name="button"><img src="{{ asset('logo/shopping-cart.svg') }}" alt=""></a>
                         </div>
                     </div>
                 </div>

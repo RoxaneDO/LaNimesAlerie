@@ -2,7 +2,7 @@
 
 {% block title %}Brand index{% endblock %}
 
-{% block body %}
+{% block container %}
     <h1>Brand index</h1>
 
     <table class="table">
@@ -32,4 +32,5 @@
     </table>
 
     <a href="{{ path('brand_new') }}">Create new</a>
+    <a href="{{ path('admin') }}">Retour</a>
 {% endblock %}

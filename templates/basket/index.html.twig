@@ -77,7 +77,7 @@
     {% endif %}
 
     <div class="d-flex justify-content-between w-100">
-        <a type="button" class="btn border-warning text-uppercase text-warning px-3" href="#boutique"><< boutique</a>
+        <a type="button" class="btn border-warning text-uppercase text-warning px-3" href="{{ path('product_index') }}"><< boutique</a>
 
         {% if app.user %}
         <a type="button" class="btn border-warning text-uppercase text-warning px-3" href="{{ path('basket_delivery') }}">suite >></a>
