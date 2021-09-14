@@ -72,7 +72,7 @@
                     <div class="col-12 my-2">
                         <div class="row d-flex align-items-center">
                             <div class="col-8 p-3 bg-light">
-                                <p class="card-text fw-bolder text-uppercase">à partir de {{ product.priceHT * 0.5 | round}} EUR</p>
+                                <p class="card-text fw-bolder text-uppercase">à partir de {{ product.priceHT }} EUR</p>
                             </div>
                             <a type="button" href="{{ path('basket_add', {'id': product.id })}}" class="btn col-2" name="button"><img src="{{ asset('logo/plus.svg') }}" alt=""></a>
                             <a type="button" class="btn col-2" name="button"><img src="{{ asset('logo/shopping-cart.svg') }}" alt=""></a>
@@ -130,7 +130,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="d-flex flex-column align-items-center">
+                <div class="">
                     <img class="logo_confience text-center" src="{{ asset('logo/help.svg') }}" alt="">
                     <p class="text-center mt-4"><b>Aide et contact </b></br> Une question ?</p>
                 </div>

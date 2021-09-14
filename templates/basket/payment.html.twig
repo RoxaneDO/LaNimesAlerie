@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+<div class="bg-light p-3">
+    <h1 class="text-uppercase">facture</h1>
+</div>
+
+<section class="container">
+    <div class="row my-5">
+        <div class="col-2 offset-2">
+            <div class="d-flex flex-column align-items-center ">
+                <a class="btn border-success text-success fw-bold" href="{{ path('basket') }}">1</a>
+                <p class="text-uppercase fw-bold mt-2">Panier</p>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="d-flex flex-column align-items-center">
+                <a class="btn border-success text-success fw-bold" href="{{ path('app_login') }}">2</a>
+                <p class="text-uppercase fw-bold mt-2">Se connecter</p>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="d-flex flex-column align-items-center">
+                <a class="btn border-success text-success fw-bold" href="#">3</a>
+                <p class="text-uppercase fw-bold mt-2">Livraison</p>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="d-flex flex-column align-items-center ">
+                <a class="btn bg-success text-light fw-bold" href="#">4</a>
+                <p class="text-uppercase fw-bold mt-2">Paiement</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="">
+        {% if items | length > 0 %} <!-- On transforme notre tableau items en une longueur -->
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-uppercase">Produit</th>
+                    <th class="text-uppercase">Price HT</th>
+                    <th class="text-uppercase">Quantité</th>
+                    <th class="text-uppercase">Total HT</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td> <span class="text-uppercase">{{ item.product.brand.name }}</span> - {{ item.product.name }}</td>
+                    <td>{{ item.product.priceHT }} EUR</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.product.priceHT * item.quantity }} EUR</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-end fw-bold">Total HT :</td>
+                    <td class=""> {{ total }} EUR</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-end fw-bold">TVA 20%</td>
+                    <td class=""> {{ (total * 0.2) | round(2, 'floor') }} EUR</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-end fw-bold text-warning">Total TTC</td>
+                    <td class="text-warning"> {{ total + (total * 0.2) | round(2, 'floor') }} EUR</td>
+                </tr>
+            </tfoot>
+        </table>
+        {% else  %}
+        <p>Surprise c'est vide!</p>
+        {% endif %}
+    </div>
+</section>
+
+<div class="bg-light p-3">
+    <h1 class="text-uppercase">paiement</h1>
+</div>
+
+<section class="container">
+ formulaire paypal / CB
+</section>
+
+{% endblock %}

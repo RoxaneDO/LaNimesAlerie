@@ -87,7 +87,7 @@ class BasketController extends AbstractController
     }
 
     #[Route('/basket/delivery', name: 'basket_delivery')]
-    public function deliveryAdress(UserRepository $user ){
+    public function deliveryAdress(UserRepository $user){
 
         if(!empty($this->getUser())){
             $id = $this->getUser()->getId();
@@ -100,8 +100,38 @@ class BasketController extends AbstractController
         else {
             return $this->redirectToRoute("app_login");
         }
+    }
+
+    #[Route('/basket/payment', name: 'basket_payment')]
+    public function payement(UserRepository $user, SessionInterface $session, ProductRepository $productRepository){
+
+        /* Mettre la session dans un tableau pour l'affichage */
+        $panier = $session->get('panier', []); // j'ai un panier qui est égale à ce qu'il y a dans la session qui s'appelle 'panier'
+
+        $panierWithData = []; // Création d'un nouveau tableau avec les informations du produit
+
+        foreach ($panier as $id => $quantity) {
+            $panierWithData[] = [
+                'product' => $productRepository->find($id),
+                'quantity' => $quantity
+            ];
+        }
+        /*AOE Mettre la session dans un tableau pour l'affichage*/
 
 
+        /* Faire le total */
+        $total = 0;
+        foreach($panierWithData as $item){
+            $totalItem = $item['product']->getPriceHT() * $item['quantity'];
+            $total += $totalItem;
+        }
+        /*AOE faire le total */
 
+
+        /* dd($panierWithData); */
+
+        return $this->render('basket/payment.html.twig', [
+            'items' => $panierWithData, 'total' => $total,
+        ]);
     }
 }
