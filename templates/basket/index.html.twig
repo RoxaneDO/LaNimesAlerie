@@ -43,6 +43,7 @@
             </tr>
         </tfoot>
     </table>
+
     {% else  %}
 
     <p>Surprise c'est vide!</p>
@@ -52,7 +53,7 @@
         <a type="button" class="btn border-warning text-uppercase text-warning px-3" href="#boutique"><< boutique</a>
 
         {% if app.user %}
-        <a type="button" class="btn border-warning text-uppercase text-warning px-3" href="#boutique">suite >></a>
+        <a type="button" class="btn border-warning text-uppercase text-warning px-3" href="{{ path('basket_delivery') }}">suite >></a>
 
         {% else  %}
         <a type="button" class="btn border-warning text-uppercase text-warning px-3" href="{{ path('app_login') }}">suite >></a>

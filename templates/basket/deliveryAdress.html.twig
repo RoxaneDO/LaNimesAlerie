@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+
+<section class="container">
+<div class="row row-col-2">
+    <div class="col">
+        <h3  class="text-uppercase">adresse de livraison</h3>
+        <p>{{ user.genre}} {{ user.firstname}} {{ user.name}} </p>
+        <p>{{ user.street}} </p>
+        <p>{{ user.pc }}</p>
+        <p>{{ user.city }} - FRANCE</p>
+        <p> <a  type="button" class="btn border-warning text-uppercase text-warning px-3" href="#">mettre à jour</a> </p>
+    </div>
+    <div class="col">
+        <h3 class="text-uppercase">adress de facturation</h3>
+        <p>{{ user.genre}} {{ user.firstname}} {{ user.name}} </p>
+        <p>{{ user.street}} </p>
+        <p>{{ user.pc }}</p>
+        <p>{{ user.city }} - FRANCE</p>
+        <p> <a  type="button" class="btn border-warning text-uppercase text-warning px-3" href="#">mettre à jour</a> </p>
+    </div>
+
+</div>
+</section>
+
+
+{% endblock %}

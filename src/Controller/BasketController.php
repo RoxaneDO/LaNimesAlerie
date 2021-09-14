@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Delivery;
 use App\Repository\BasketRepository;
 use App\Repository\ProductRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -84,4 +86,22 @@ class BasketController extends AbstractController
         return $this->redirectToRoute("basket");
     }
 
+    #[Route('/basket/delivery', name: 'basket_delivery')]
+    public function deliveryAdress(UserRepository $user ){
+
+        if(!empty($this->getUser())){
+            $id = $this->getUser()->getId();
+            $user = $user->find($id);
+
+            return $this->render('basket/deliveryAdress.html.twig', [
+                'user' => $user,
+            ]);
+        }
+        else {
+            return $this->redirectToRoute("app_login");
+        }
+
+
+
+    }
 }
