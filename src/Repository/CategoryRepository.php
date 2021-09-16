@@ -28,16 +28,6 @@ class CategoryRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findSubCategories($value)
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.category = :val')
-            ->setParameter('val', $value) // sécurise le code, au lieu de mettre andWhere('c.exampleField = $value')
-            ->getQuery()
-            ->getResult(\Doctrine\ORM\Query::HYDRATE_ARRAY) // retourne un tableau de données
-        ;
-    }
-
     // /**
     //  * @return Category[] Returns an array of Category objects
     //  */

@@ -41,15 +41,46 @@
             </select>
         </div>
 
+        <p><a type="button" class="btn btn-warning text-warning text-light px-3" href="{{ path('basket_add', {'id': product.id })}}">AU PANIER!</a></p>
 
     </div>
-
 </div>
-
-
-
-    {{product.name}}
 </section>
 
+<section class="container py-5 my-2">
+    <h3 class="text-center text-uppercase mb-5">Pas de panique à bord !</h3>
+    <div class="row row-cols row-col-md-5">
+        <div class="col">
+            <div class="d-flex flex-column align-items-center">
+                <img class="logo_confience text-center" src="{{ asset('logo/shop.svg') }}" alt="">
+                <p class="text-center mt-4"><b>Retrait gratuit</b></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex flex-column align-items-center">
+                <img class="logo_confience text-center" src="{{ asset('logo/delivery.svg') }}" alt="">
+                <p class="text-center mt-4"><b>Livraison offerte </b></br> domicile dès 35e</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex flex-column align-items-center">
+                <img class="logo_confience text-center" src="{{ asset('logo/passkey.svg') }}" alt="">
+                <p class="text-center mt-4"><b>Paiement sécurisé</b></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex flex-column align-items-center">
+                <img class="logo_confience text-center" src="{{ asset('logo/money-bag.svg') }}" alt="">
+                <p class="text-center mt-4"><b>Retours gratuits</b></p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-flex flex-column align-items-center">
+                <img class="logo_confience text-center" src="{{ asset('logo/help.svg') }}" alt="">
+                <p class="text-center mt-4"><b>Aide et contact </b></br> Une question ?</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

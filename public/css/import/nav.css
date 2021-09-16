@@ -1,3 +1,125 @@
 .logo_animalerie {
-    height: 40px;
+    height: 55px;
+}
+
+nav{
+    width: 100%;
+    z-index: 999;
+    height: 65px;
+    line-height: 65px;
+}
+
+nav .wrapper{
+    position: relative;
+    padding: 0 30px;
+    margin: auto;
+    max-width: 1250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 65px;
+}
+
+.wrapper .logo a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.wrapper .nav-links{
+    display: inline-flex;
+    margin: 0;
+}
+
+.wrapper .nav-links li {
+    margin : 0 25px;
+}
+
+.nav-links li a{
+    color: #32505D;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 9px 15px;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover{
+    background: #C2FFED;
+    color: #E5E5E5;
+}
+
+.nav-links .drop-menu{
+    background: #C2FFED;
+    width: 180px;
+    top: 65px;
+    line-height: 45px;
+    position: absolute;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.nav-links li:hover .mega-box,
+.nav-links li:hover .drop-menu{
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.drop-menu li a{
+    width:100%;
+    display: block;
+    padding: 0 0 0 15px;
+    font-weight: 400;
+}
+
+.mega-box{
+    position: absolute;
+    top: 65px;
+    background: #32505D;
+    width: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.mega-box .content{
+    background: #32505D;
+    padding: 25px 20px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.content .row{
+    width: calc(25% - 30px);
+    line-height: 45px;
+}
+
+.content .row img{
+    width:100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.content .row .mega-links{
+    border-left: 1px solid rgba(255, 255, 255, 255);
+    margin-left : -40px;
+}
+
+.content .row .mega-links li{
+    padding : 0 20px;
+}
+
+.content .row .mega-links li a{
+    padding:0 20 px;
+    color: white;
+    display: block;
+}
+.content .row .mega-links li a:hover{
+    color: #32505D;
+    background-color: #C2FFED
 }

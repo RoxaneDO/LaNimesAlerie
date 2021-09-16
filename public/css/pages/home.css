@@ -14,7 +14,8 @@
 
 .carousel-item{
 
-  object-fit: none;
+    height:100%;
+    width:100%
 }
 
 .carousel-item img {
@@ -23,7 +24,6 @@
 }
 
 .logoBrand{
-  width: 65px;
   height: 65px;
 }
 

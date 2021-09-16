@@ -1,55 +1,50 @@
-<div class=" header container h-100">
-    <nav class="navbar navbar-expand-lg h-100 d-flex justify-content-between">
-        <a href="{{ path('home') }}" class=""><img class="logo_animalerie" src="{{ asset('image/Logo.png') }}" alt=""></a>
-        <div class="w-auto">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="px-5 nav-item dropdown">
-                        <a class="nav-link dropdown-toggle fw-bold text-primary" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            LA NIME ALERIE ?
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Qui sommes nous ?</a></li>
-                            <li><a class="dropdown-item" href="#">Contact</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="px-5 nav-item dropdown">
-                        <a class="nav-link dropdown-toggle fw-bold text-primary" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            NOS PARTENAIRES
-                        </a>
-
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {% for brand in brands %}
-                            <li><a href="#" class="dropdown-item">{{ brand.name }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </li>
-                    <li class="px-5 nav-item dropdown">
-                        <a class="nav-link dropdown-toggle fw-bold text-primary" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            BOUTIQUE
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                            {% for mainCat in mainCats %}
-                                <li><a href="#" class="dropdown-item fw-bolder">{{ mainCat.name }}</a></li>
-                                <ul>
-                                    {% for category in categories %}
-                                        {% if category.category is not null and mainCat.id == category.category.id %}
-                                            <li><a href="#" class="dropdown-item fw-bolder">{{ category.name }}</a></li>
-                                        {% endif %}
-                                    {% endfor %}
-                                </ul>
-                            {% endfor %}
-                        </ul>
-                    </li>
+<nav>
+    <div class="wrapper">
+        <div class="logo"><a href="{{ path('home')}}"><img class="logo_animalerie" src="{{ asset('image/Logo2.png')}}" alt="logo"> </a></div>
+        <ul class="nav-links">
+            <li><a href="#" class="text-uppercase">la nimes'alerie ?</a>
+                <ul class="drop-menu">
+                    <li><a href="#">Drop menu 1</a></li>
+                    <li><a href="#">Drop menu 2</a></li>
+                    <li><a href="#">Drop menu 3</a></li>
+                    <li><a href="#">Drop menu 4</a></li>
                 </ul>
-            </div>
-        </div>
+            </li>
+            <li><a href="#" class="text-uppercase">partenaires</a>
+                <ul class="drop-menu">
+                    <li><a href="#">Drop menu 1</a></li>
+                    <li><a href="#">Drop menu 2</a></li>
+                    <li><a href="#">Drop menu 3</a></li>
+                    <li><a href="#">Drop menu 4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="text-uppercase">boutique</a>
+                <div class="mega-box">
+                    <div class="content">
+                        <div class="row">
+                            <a href=""><img src="{{ asset('image/blackMoon.png') }}" alt=""></a>
+                        </div>
+                        {% for mc in mainCats %}
+                        <div class="row">
+                            <header>{{ mc.name }}</header>
+                            <ul class="mega-links">
+                                {% for category in categories %}
+                                    {% if category.category is not null and category.category.id == mc.id %}
+                                        <li> <a href="#" class="text-uppercase">{{ category.name }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </li>
+        </ul>
 
         {% if is_granted('ROLE_ADMIN') %}
         <div class="">
-            <span><a href="{{ path('admin') }}" target="_blank" class="btn text-warning">ADMIN</a></span>
+            <span><a href="{{ path('admin_index') }}" class="btn text-warning">ADMIN</a></span>
             <span><a href="{{ path('app_logout') }}" class="btn text-warning">SE DECONNECTER</a></span>
         </div>
         {% elseif is_granted('ROLE_USER') %}
@@ -60,5 +55,6 @@
         {% else %}
         <span><a href="{{ path('app_login') }}" class="btn text-warning">SE CONNECTER</a></span>
         {% endif %}
-    </nav>
+    </div>
+</nav>
 </div>

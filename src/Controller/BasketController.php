@@ -16,8 +16,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface; // Livré un objet qui représente la sessioninterface
 use Symfony\Component\Routing\Annotation\Route;
 
-
-
 class BasketController extends AbstractController
 {
     #[Route('/basket', name: 'basket')]
