@@ -9,6 +9,10 @@ nav{
     line-height: 65px;
 }
 
+nav ul{
+    padding:0px;
+}
+
 nav .wrapper{
     position: relative;
     padding: 0 30px;
@@ -32,29 +36,29 @@ nav .wrapper{
 }
 
 .wrapper .nav-links li {
-    margin : 0 25px;
+    margin : 0 15px;
 }
 
 .nav-links li a{
     color: #32505D;
     text-decoration: none;
     font-weight: 500;
-    padding: 9px 15px;
+    padding: 9px 8px;
     transition: all 0.3s ease;
 }
 
 .nav-links li a:hover{
     background: #C2FFED;
-    color: #E5E5E5;
+    color: #32505D;
+
 }
 
 .nav-links .drop-menu{
-    background: #C2FFED;
-    width: 180px;
+    background: #32505D;
+    width: auto;
     top: 65px;
     line-height: 45px;
     position: absolute;
-    padding: 0;
     opacity: 0;
     visibility: hidden;
     z-index: 999;
@@ -70,8 +74,9 @@ nav .wrapper{
 .drop-menu li a{
     width:100%;
     display: block;
-    padding: 0 0 0 15px;
-    font-weight: 400;
+    padding: 0 15px;
+    font-weight: 500;
+    color: #E5E5E5;
 }
 
 .mega-box{
@@ -84,6 +89,14 @@ nav .wrapper{
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 999;
+}
+
+.mega-box header{
+    color : #F4BD05;
+    font-weight: 800;
+    font-size: 1.1rem;
+
+
 }
 
 .mega-box .content{
@@ -119,6 +132,7 @@ nav .wrapper{
     color: white;
     display: block;
 }
+
 .content .row .mega-links li a:hover{
     color: #32505D;
     background-color: #C2FFED
