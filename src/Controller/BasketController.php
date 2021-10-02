@@ -119,6 +119,10 @@ class BasketController extends AbstractController
         }
         /*AOE Mettre la session dans un tableau pour l'affichage*/
 
+
+        // Mettre
+
+
         /* Formulaire de paiement */
         $order = new Orders();
 
@@ -128,12 +132,24 @@ class BasketController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $order->setDateOrder(new \DateTime('now'));
 
+
+            foreach ($panierWithData as $key => $article) {
+
+                $commandLine = new CommandLine;
+                $commandLine->setQuantity($article['quantity']);
+                $commandLine->setProduct($article['product']);
+
+
+            }
+
+
+            // ajoute la clé étrangère user dans la table order
+            $user = $this->getUser();
+            $order->setUser($user);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($order);
             $entityManager->flush();
-
-
-            $this->addCommandLine($order);
 
             return $this->redirectToRoute('basket_confirmation', [], Response::HTTP_SEE_OTHER);
         }
@@ -154,14 +170,6 @@ class BasketController extends AbstractController
 
     public function addCommandLine($order)
     {
-        $commandLine = new CommandLine();
-        $idOrder = $order->getId();
-
-        $commandLine->setBasket($idOrder);
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($commandLine);
-        $entityManager->flush();
     }
 
     #[Route('/basket/confirmation', name: 'basket_confirmation')]

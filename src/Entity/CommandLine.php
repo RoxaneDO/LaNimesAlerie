@@ -23,11 +23,6 @@ class CommandLine
     private $quantity;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Basket::class, inversedBy="commandLines")
-     */
-    private $basket;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="CommandLine")
      */
     private $product;
@@ -45,18 +40,6 @@ class CommandLine
     public function setQuantity(int $quantity): self
     {
         $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    public function getBasket(): ?basket
-    {
-        return $this->basket;
-    }
-
-    public function setBasket(?basket $basket): self
-    {
-        $this->basket = $basket;
 
         return $this;
     }
