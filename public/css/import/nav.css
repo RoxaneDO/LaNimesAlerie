@@ -95,8 +95,6 @@ nav .wrapper{
     color : #F4BD05;
     font-weight: 800;
     font-size: 1.1rem;
-
-
 }
 
 .mega-box .content{
@@ -128,7 +126,7 @@ nav .wrapper{
 }
 
 .content .row .mega-links li a{
-    padding:0 20 px;
+    padding:0 20px;
     color: white;
     display: block;
 }

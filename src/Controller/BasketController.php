@@ -119,10 +119,6 @@ class BasketController extends AbstractController
         }
         /*AOE Mettre la session dans un tableau pour l'affichage*/
 
-
-        // Mettre
-
-
         /* Formulaire de paiement */
         $order = new Orders();
 
@@ -132,15 +128,6 @@ class BasketController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $order->setDateOrder(new \DateTime('now'));
 
-
-            foreach ($panierWithData as $key => $article) {
-
-                $commandLine = new CommandLine;
-                $commandLine->setQuantity($article['quantity']);
-                $commandLine->setProduct($article['product']);
-
-
-            }
 
 
             // ajoute la clé étrangère user dans la table order
@@ -166,10 +153,6 @@ class BasketController extends AbstractController
         return $this->render('basket/payment.html.twig', [
             'items' => $panierWithData, 'total' => $total, 'form' => $form->createView()
         ]);
-    }
-
-    public function addCommandLine($order)
-    {
     }
 
     #[Route('/basket/confirmation', name: 'basket_confirmation')]
