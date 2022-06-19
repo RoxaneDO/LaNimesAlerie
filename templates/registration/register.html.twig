@@ -2,20 +2,63 @@
 
 {% block title %}Register{% endblock %}
 
-{% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+{% block container %}
+{% for flashError in app.flashes('verify_email_error') %}
+<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+{% endfor %}
 
-    <h1>Register</h1>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+<div class="d-flex container">
+    <div class="d-flex flex-column w-100">
+        <h1>Register</h1>
+        {{ form_start(registrationForm) }}
+        <div class="w-50">
+            {{ form_widget(registrationForm.genre) }}
+        </div>
+        <div class="w-50">
+            {{ form_label(registrationForm.firstname, "Votre prénom") }}
+            {{ form_widget(registrationForm.firstname, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="w-50">
+            {{ form_label(registrationForm.name, "Votre nom") }}
+            {{ form_widget(registrationForm.name, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="w-50">
+            {{ form_label(registrationForm.birthday, "Votre anniversaire") }}
+            {{ form_widget(registrationForm.birthday, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="w-50">
+            {{ form_label(registrationForm.street, "Votre rue") }}
+            {{ form_widget(registrationForm.street, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="w-50">
+            {{ form_label(registrationForm.pc, "Code postal") }}
+            {{ form_widget(registrationForm.pc, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="w-50">
+            {{ form_label(registrationForm.city, "Ville") }}
+            {{ form_widget(registrationForm.city, {'attr': {'class': 'form-control'}}) }}
+        </div>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+        <div class="w-50">
+            {{ form_label(registrationForm.email, "Votre email") }}
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="w-50">
+            {{ form_label(registrationForm.plainPassword, "Password") }}
+            {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="w-50">
+            {{ form_row(registrationForm.agreeTerms) }}
+        </div>
+        <button type="submit" class="btn btn-success">Register</button>
+        {{ form_end(registrationForm) }}
+    </div>
+    <div class="w-100 d-flex flex-column justify-content-center align-items-center">
+        <h1>Déjà client ?</h1>
+        <span><a href="{{ path('app_login')}}" class="btn btn-success">Se connecter</a></span>
+    </div>
+</div>
+
+
 {% endblock %}

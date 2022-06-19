@@ -2,15 +2,18 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
@@ -57,7 +60,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $brithday;
+    private $birthday;
 
     /**
      * @ORM\Column(type="string", length=750, nullable=true)
@@ -85,13 +88,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $registrationDate;
 
     /**
-     * @ORM\OneToMany(targetEntity=Basket::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Orders::class, mappedBy="user")
      */
-    private $baskets;
+    private $orders;
+
 
     public function __construct()
     {
         $this->baskets = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -219,14 +224,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getBrithday(): ?\DateTimeInterface
+    public function getBirthday(): ?\DateTimeInterface
     {
-        return $this->brithday;
+        return $this->birthday;
     }
 
-    public function setBrithday(?\DateTimeInterface $brithday): self
+    public function setBirthday(?\DateTimeInterface $birthday): self
     {
-        $this->brithday = $brithday;
+        $this->birthday = $birthday;
 
         return $this;
     }
@@ -292,29 +297,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|Basket[]
+     * @return Collection|Orders[]
      */
-    public function getBaskets(): Collection
+    public function getOrders(): Collection
     {
-        return $this->baskets;
+        return $this->orders;
     }
 
-    public function addBasket(Basket $basket): self
+    public function addOrder(Orders $order): self
     {
-        if (!$this->baskets->contains($basket)) {
-            $this->baskets[] = $basket;
-            $basket->setUser($this);
+        if (!$this->orders->contains($order)) {
+            $this->orders[] = $order;
+            $order->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeBasket(Basket $basket): self
+    public function removeOrder(Orders $order): self
     {
-        if ($this->baskets->removeElement($basket)) {
+        if ($this->orders->removeElement($order)) {
             // set the owning side to null (unless already changed)
-            if ($basket->getUser() === $this) {
-                $basket->setUser(null);
+            if ($order->getUser() === $this) {
+                $order->setUser(null);
             }
         }
 

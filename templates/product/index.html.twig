@@ -1,0 +1,145 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+
+<h6 class="text-uppercase ms-5 ">Boutique ></h6>
+<h1 class="text-uppercase m-5">la boutique</h1>
+
+<section class="container-fluid my-5">
+    <div class="row ge-5">
+        <div class="col-2 bg-light ">
+                ici ya les filtres
+        </div>
+        <div class="col-9 d-flex mx-auto justify-content-center align-items-center">
+            <div class="row row-cols-5">
+                {% for product in products %}
+                <div class="col">
+                    <div class="">
+                        <div class="bgImgCardParent d-flex justify-content-center">
+                            <div class="bgImgCard bg-warning"></div>
+                            <img src="{{ asset('image/promess-croquette.png') }}" class="image_carte" alt="coucou">
+                        </div>
+                        <div class="row">
+                            <div class=" p-3 bg-light me-1">
+                                <p class="card-text fw-bold"><span class="text-uppercase">{{ product.brand.name }}</span> - {{ product.name }}</p>
+                            </div>
+                            <div class="col-12 my-2">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-8 p-3 bg-light">
+                                        <p class="card-text fw-bolder text-uppercase">à partir de {{ product.priceHT }} EUR</p>
+                                    </div>
+                                    <a type="button" href="{{ path('product_show', {'id': product.id })}}" class="btn col-2" name="button"><img src="{{ asset('logo/plus.svg') }}" alt=""></a>
+                                    <a type="button" href="{{ path('basket_add', {'id': product.id })}}" class="btn col-2" name="button"><img src="{{ asset('logo/shopping-cart.svg') }}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% for product in products %}
+                <div class="col">
+                    <div class="">
+                        <div class="bgImgCardParent d-flex justify-content-center">
+                            <div class="bgImgCard bg-warning"></div>
+                            <img src="{{ asset('image/promess-croquette.png') }}" class="image_carte" alt="coucou">
+                        </div>
+                        <div class="row">
+                            <div class=" p-3 bg-light me-1">
+                                <p class="card-text fw-bold"><span class="text-uppercase">{{ product.brand.name }}</span> - {{ product.name }}</p>
+                            </div>
+                            <div class="col-12 my-2">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-8 p-3 bg-light">
+                                        <p class="card-text fw-bolder text-uppercase">à partir de {{ product.priceHT }} EUR</p>
+                                    </div>
+                                    <a type="button" href="{{ path('basket_add', {'id': product.id })}}" class="btn col-2" name="button"><img src="{{ asset('logo/plus.svg') }}" alt=""></a>
+                                    <a type="button" class="btn col-2" name="button"><img src="{{ asset('logo/shopping-cart.svg') }}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% for product in products %}
+                <div class="col">
+                    <div class="">
+                        <div class="bgImgCardParent d-flex justify-content-center">
+                            <div class="bgImgCard bg-warning"></div>
+                            <img src="{{ asset('image/promess-croquette.png') }}" class="image_carte" alt="coucou">
+                        </div>
+                        <div class="row">
+                            <div class=" p-3 bg-light me-1">
+                                <p class="card-text fw-bold"><span class="text-uppercase">{{ product.brand.name }}</span> - {{ product.name }}</p>
+                            </div>
+                            <div class="col-12 my-2">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-8 p-3 bg-light">
+                                        <p class="card-text fw-bolder text-uppercase">à partir de {{ product.priceHT }} EUR</p>
+                                    </div>
+                                    <a type="button" href="{{ path('basket_add', {'id': product.id })}}" class="btn col-2" name="button"><img src="{{ asset('logo/plus.svg') }}" alt=""></a>
+                                    <a type="button" class="btn col-2" name="button"><img src="{{ asset('logo/shopping-cart.svg') }}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% for product in products %}
+                <div class="col">
+                    <div class="">
+                        <div class="bgImgCardParent d-flex justify-content-center">
+                            <div class="bgImgCard bg-warning"></div>
+                            <img src="{{ asset('image/promess-croquette.png') }}" class="image_carte" alt="coucou">
+                        </div>
+                        <div class="row">
+                            <div class=" p-3 bg-light me-1">
+                                <p class="card-text fw-bold"><span class="text-uppercase">{{ product.brand.name }}</span> - {{ product.name }}</p>
+                            </div>
+                            <div class="col-12 my-2">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-8 p-3 bg-light">
+                                        <p class="card-text fw-bolder text-uppercase">à partir de {{ product.priceHT }} EUR</p>
+                                    </div>
+                                    <a type="button" href="{{ path('basket_add', {'id': product.id })}}" class="btn col-2" name="button"><img src="{{ asset('logo/plus.svg') }}" alt=""></a>
+                                    <a type="button" class="btn col-2" name="button"><img src="{{ asset('logo/shopping-cart.svg') }}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% for product in products %}
+                <div class="col">
+                    <div class="">
+                        <div class="bgImgCardParent d-flex justify-content-center">
+                            <div class="bgImgCard bg-warning"></div>
+                            <img src="{{ asset('image/promess-croquette.png') }}" class="image_carte" alt="coucou">
+                        </div>
+                        <div class="row">
+                            <div class=" p-3 bg-light me-1">
+                                <p class="card-text fw-bold"><span class="text-uppercase">{{ product.brand.name }}</span> - {{ product.name }}</p>
+                            </div>
+                            <div class="col-12 my-2">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-8 p-3 bg-light">
+                                        <p class="card-text fw-bolder text-uppercase">à partir de {{ product.priceHT }} EUR</p>
+                                    </div>
+                                    <a type="button" href="{{ path('basket_add', {'id': product.id })}}" class="btn col-2" name="button"><img src="{{ asset('logo/plus.svg') }}" alt=""></a>
+                                    <a type="button" class="btn col-2" name="button"><img src="{{ asset('logo/shopping-cart.svg') }}" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+{% endblock %}

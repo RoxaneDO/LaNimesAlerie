@@ -1,0 +1,16 @@
+.bgImgCardParent{
+  position: relative;
+}
+
+.bgImgCard{
+position: absolute;
+z-index:-1;
+top:0;
+width:100%;
+height: 70%;
+}
+
+.bgImgCardParent img{
+  width: 28.5rem;
+  height: 28.5rem;
+}

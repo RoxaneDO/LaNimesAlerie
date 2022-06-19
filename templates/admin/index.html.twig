@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block container %}
+<section class="container">
+
+<a href="{{ path('category_admin') }}">CATEGORIES</a>
+<a href="{{ path('product_admin') }}">produits</a>
+<a href="{{ path('users_admin') }}">users</a>
+<a href="{{ path('orders_admin') }}">orders</a>
+<a href="{{ path('brand_admin') }}">brands</a>
+<a href="http://localhost:4200">Dashboard</a>
+
+
+</section>
+{% endblock %}

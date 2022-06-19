@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+<div class="bg-light p-3">
+    <h1 class="text-uppercase">Livraison</h1>
+</div>
+<section class="container">
+    <div class="row my-5">
+        <div class="col-2 offset-2">
+            <div class="d-flex flex-column align-items-center ">
+                <a class="btn border-success text-success fw-bold" href="{{ path('basket')}}">1</a>
+                <p class="text-uppercase fw-bold mt-2">Panier</p>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="d-flex flex-column align-items-center">
+                <a class="btn border-success text-success fw-bold" href="{{ path('app_login')}}">2</a>
+                <p class="text-uppercase fw-bold mt-2">Se connecter</p>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="d-flex flex-column align-items-center">
+                <a class="btn bg-success text-light fw-bold" href="#">3</a>
+                <p class="text-uppercase fw-bold mt-2">Livraison</p>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="d-flex flex-column align-items-center ">
+                <a class="btn border-success text-success fw-bold" href="#">4</a>
+                <p class="text-uppercase fw-bold mt-2">Paiement</p>
+            </div>
+        </div>
+    </div>
+    <div class="row row-col-2">
+        <div class="col">
+            <h3  class="text-uppercase">adresse de livraison</h3>
+            <p>{{ user.genre}} {{ user.firstname}} {{ user.name}} </p>
+            <p>{{ user.street}} </p>
+            <p>{{ user.pc }} {{ user.city }}</p>
+            <p>FRANCE</p>
+            <p> <a  type="button" class="btn border-warning text-uppercase text-warning px-3" href="#">mettre à jour</a> </p>
+        </div>
+        <div class="col">
+            <h3 class="text-uppercase">adresse de facturation</h3>
+            <p>{{ user.genre}} {{ user.firstname}} {{ user.name}} </p>
+            <p>{{ user.street}} </p>
+            <p>{{ user.pc }} {{ user.city }}</p>
+            <p>FRANCE</p>
+            <p> <a  type="button" class="btn border-warning text-uppercase text-warning px-3" href="#">mettre à jour</a> </p>
+        </div>
+
+    </div>
+
+    <div class="text-uppercase conditionsGenerales my-5">J'ai lu les conditions générales de vente et j'y adhère sans réserve <span class="fw-bold">(lire les conditions générales de vente)</span></div>
+
+    <div class="d-flex justify-content-between w-100 my-5">
+        <a type="button" class="btn border-warning text-uppercase text-warning px-3" href="{{ path('basket') }}"><< panier</a>
+
+        <a type="button" class="btn border-warning text-uppercase text-warning px-3" href=" {{ path('basket_payment') }}">paiment & facture >></a>
+    </div>
+</section>
+
+
+{% endblock %}

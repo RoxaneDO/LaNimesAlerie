@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  scroll-behavior: smooth;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #32505D;
+}
+
+.container_page{
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+}
+
+.btn{
+  border-radius: 0 !important;
+}
+
+.btn img {
+  height: 1.8rem;
+}

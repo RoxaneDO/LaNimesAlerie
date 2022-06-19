@@ -1,0 +1,69 @@
+<nav>
+    <div class="wrapper">
+
+        <ul class="nav-links">
+            <li class=""><a href="#" class="text-uppercase">la nimes'alerie ?</a>
+                <ul class="drop-menu py-3">
+                    <li><a class="text-uppercase" href="#">Qui sommes-nous ?</a></li>
+                    <li><a class="text-uppercase" href="#">Contact</a></li>
+                </ul>
+            </li>
+            <li class=""><a href="#" class="text-uppercase">partenaires</a>
+                <ul class="drop-menu py-3">
+                    {% for brand in brands %}
+                    <li><a class="text-uppercase" href="#">{{ brand.name }}</a></li>
+                    {% endfor %}
+                    {% for brand in brands %}
+                    <li><a class="text-uppercase" href="#">{{ brand.name }}</a></li>
+                    {% endfor %}
+                    {% for brand in brands %}
+                    <li><a class="text-uppercase" href="#">{{ brand.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li class="">
+                <a href="#" class="text-uppercase">boutique</a>
+                <div class="mega-box">
+                    <div class="content">
+                        <div class="row">
+                            <a href=""><img src="{{ asset('image/blackMoon.png') }}" alt=""></a>
+                        </div>
+                        {% for mc in mainCats %}
+                        <div class="row">
+                            <header class="text-uppercase">{{ mc.name }}</header>
+                            <ul class="mega-links">
+                                {% for category in categories %}
+                                    {% if category.category is not null and category.category.id == mc.id %}
+                                        <li class=""> <a href="#" class="text-uppercase">{{ category.name }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="logo"><a href="{{ path('home')}}"><img class="logo_animalerie" src="{{ asset('image/Logo2.png')}}" alt="logo"> </a></div>
+
+        {% if is_granted('ROLE_ADMIN') %}
+        <div class="d-flex ">
+            <span><a type="button" href="{{ path('basket') }}" class="btn text-warning mx-3">MON PANIER</a></span>
+            <span><a href="{{ path('admin') }}" class="btn text-warning mx-3">ADMIN</a></span>
+            <span><a href="{{ path('app_logout') }}" class="btn text-warning mx-3">SE DECONNECTER</a></span>
+        </div>
+        {% elseif is_granted('ROLE_USER') %}
+        <div class="d-flex justify-content-between ">
+            <span><a type="button" href="{{ path('basket') }}" class="btn text-warning mx-3">MON PANIER</a></span>
+            <span><a href="{{ path('account') }}" class="btn text-warning mx-3">MON COMPTE</a></span>
+            <span><a href="{{ path('app_logout') }}" class="btn text-warning mx-3">SE DECONNECTER</a></span>
+        </div>
+        {% else %}
+        <div class="d-flex ">
+            <span><a type="button" href="{{ path('basket') }}" class="btn text-warning mx-3">MON PANIER</a></span>
+            <span><a href="{{ path('app_login') }}" class="btn text-warning mx-3">SE CONNECTER</a></span>
+        </div>
+        {% endif %}
+    </div>
+</nav>
+</div>

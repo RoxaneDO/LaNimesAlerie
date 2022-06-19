@@ -1,0 +1,46 @@
+.carouselHome{
+  height: 80vh;
+}
+
+.carousel {
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-inner{
+  height:100%;
+  width:100%
+}
+
+.carousel-item{
+
+    height:100%;
+    width:100%
+}
+
+.carousel-item img {
+
+    width: 100%;
+}
+
+.logoBrand{
+  height: 65px;
+}
+
+.logo_partenaire{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logo_confience{
+    width: 6rem;
+}
+
+.findUs{
+    height: 50rem;
+}
+
+iframe{
+    padding: 0 !important;
+}
